@@ -6,6 +6,8 @@ class Human {
     printMygender(){
         console.log(this.gender);
     }
+    
+
 }
 
 class Person extends Human {
