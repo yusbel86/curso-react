@@ -18,7 +18,9 @@ class App extends Component {
         {name: 'Yusbel', age: 32 },
         {name: 'Yoda', age: 35 },
         {name: 'Pongo', age: 1/5 }
-      ]
+      ],
+      otherState: 'some other value',
+      showPerson: false
     })
   }
 
@@ -31,12 +33,22 @@ class App extends Component {
       ]
     })
   }
+
+  togglePersonHandler = () => {
+      const doesShow = this.state.showPerson;
+      this.setState({showPerson: !doesShow});
+  }
+
  render(){  
   return (
     <div className="App">
      <h1>Hi, I am Yusbel 
-       <button onClick={this.switchNameHandler}>Switch Name</button>
+       <button 
+           onClick={this.togglePersonHandler}>Switch Name</button>
        </h1>
+      { 
+      this.state.showPerson === true ? 
+      <div>
        <Person 
        name={this.state.persona[0].name} 
        age={this.state.persona[0].age}
@@ -51,6 +63,8 @@ class App extends Component {
        name={this.state.persona[2].name} 
        age={this.state.persona[2].age}
        />
+      </div> : null
+      }    
     </div>
   );
  }
