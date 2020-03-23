@@ -42,7 +42,7 @@ class App extends Component {
  render(){  
   return (
     <div className="App">
-     <h1>Hi, I am Yusbel 
+     <h1>Hi, I am Yusbel Carpio
        <button 
            onClick={this.togglePersonHandler}>Switch Name</button>
        </h1>
