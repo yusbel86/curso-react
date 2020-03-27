@@ -39,32 +39,45 @@ class App extends Component {
       this.setState({showPerson: !doesShow});
   }
 
- render(){  
+ render(){
+   const style ={
+     background: 'white',
+     font: 'inherit',
+     border: '1px solid blue',
+     padding: '8px',
+     cursor: 'pointer'
+   }
+
+   let person = null;
+   if (this.state.showPerson){
+     person = (
+      <div>
+      <Person 
+      name={this.state.persona[0].name} 
+      age={this.state.persona[0].age}
+      click={this.switchNameHandler}
+      change={this.nameChangeHandler}
+      />
+      <Person 
+      name={this.state.persona[1].name} 
+      age={this.state.persona[1].age}
+      />
+      <Person 
+      name={this.state.persona[2].name} 
+      age={this.state.persona[2].age}
+      />      
+     </div>
+     );
+   }
   return (
     <div className="App">
-     <h1>Hi, I am Yusbel
-       <button 
-           onClick={this.togglePersonHandler}>Switch Name</button>
-       </h1>
-      { 
-      this.state.showPerson === true ? 
-      <div>
-       <Person 
-       name={this.state.persona[0].name} 
-       age={this.state.persona[0].age}
-       click={this.switchNameHandler}
-       change={this.nameChangeHandler}
-       />
-       <Person 
-       name={this.state.persona[1].name} 
-       age={this.state.persona[1].age}
-       />
-       <Person 
-       name={this.state.persona[2].name} 
-       age={this.state.persona[2].age}
-       />
-      </div> : null
-      }    
+      <h1>Hi I' m a react App </h1>
+      <p>this really working!</p>
+      <button 
+         style={style}
+         onClick={this.togglePersonHandler}>Toggle Person</button>
+         {person}      
+
     </div>
   );
  }
