@@ -1,9 +1,24 @@
 import React, {Component} from 'react';
 import Person from './Person/Person';
+import styled from 'styled-components';
 import Validation from './Validation/Validation';
 import './App.css';
-import Radium, { StyleRoot } from 'radium';
+
 import person from './Person/Person';
+
+const StyledButton = styled.button`
+background-color: green;
+color: white;
+font: inherit;
+border: 1px solid blue;
+padding: 8px;
+cursor: pointer;
+
+&:hover {
+  background-color: lightgreen;
+  color: black;
+}
+`;
 
 
 class App extends Component {
@@ -54,20 +69,8 @@ class App extends Component {
  
 
  render(){
-   const style ={
-     background: 'green',
-     color: 'white',
-     font: 'inherit',
-     border: '1px solid blue',
-     padding: '8px',
-     cursor: 'pointer',
-     ':hover': {
-       backgroundColor: 'lightgreen',
-       color: 'black'
-     }
-   }
-
-   let person = null;
+   const style ={};
+      let person = null;
    if (this.state.showPerson){
      person = ( 
       <div>
@@ -97,7 +100,7 @@ class App extends Component {
        clasess.push('bold');
      }
   return (
-    <StyleRoot>
+    
     <div className="App">
       <h1>Hi I' m a react App </h1>
       <p className={clasess.join(' ')}>this really working!</p>
@@ -109,15 +112,15 @@ class App extends Component {
       <Validation 
          inputLenght={this.state.userInput.length}
          />
-      <button  
-         style={style}
+      <StyledButton  
+         
          onClick={this.togglePersonHandler}>Toggle Person
-         </button>
+        </StyledButton>
          {person}  
     </div>
-    </StyleRoot>
+    
      );
  }
 }
 
-export default Radium(App);
+export default App;
